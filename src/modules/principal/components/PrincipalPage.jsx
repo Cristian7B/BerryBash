@@ -1,4 +1,4 @@
-import { StartGameRedirect } from "../../game/components/StartGameRedirect"
+import { StartGameRedirect } from "./StartGameRedirect"
 import { TitlePrincipal } from "./TitlePrincipal"
 import ConfettiExplosion from './ConfettiExplosion'
 

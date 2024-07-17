@@ -1,4 +1,4 @@
-import iconGame from "../assets/game-controller-outline.svg"
+import iconGame from "../../../assets/game-controller-outline.svg"
 
 export function StartGameRedirect() {
     return (
