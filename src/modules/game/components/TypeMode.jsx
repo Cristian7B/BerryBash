@@ -1,3 +1,19 @@
-export function TypeMode() {
-    return
+import { useMode } from "../hooks/useMode"
+
+export function TypeMode({icon, name, description, id}) {
+    const { handleModeClick } = useMode()
+
+    const sendTypeMode = () => {
+        handleModeClick(id)
+    }
+
+    return (
+        <div onClick={sendTypeMode} className="typeModeContainer">
+            <img src={icon} alt={name} />
+            <div className="title-icon">
+                <h3>{name}</h3>
+                <p>{description}</p>
+            </div>  
+        </div>
+    )
 }

@@ -2,9 +2,7 @@ import { useEffect, useState, useRef } from "react"
 import { foodEmojis, foodStyles } from "../utils/consts"
 import { randomNumber } from "../utils/randomNumber"
 import { ModalScore } from "./ModalScore";
-
 export function DivGame() {
-
     const [startGame, setStartGame] = useState(false)
     const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
     const [positionFruit, setPositionFruit] = useState({x: randomNumber(containerSize.x), y: randomNumber(containerSize.y)})
@@ -80,7 +78,6 @@ export function DivGame() {
             
         }
     }, [startGame])
-
     return(
         <div className="containerAllGame">
             <div ref={containerRef} className="gameContainerFood">

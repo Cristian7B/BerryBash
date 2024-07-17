@@ -259,7 +259,6 @@ button:focus-visible {
   opacity: 0.8;
   pointer-events: none;
   left: -15px;
-  top: -15px;
   width: 30px;
   height: 30px;
   cursor: none;
@@ -308,7 +307,68 @@ button:focus-visible {
   border-radius: 20px;
   width: 100%;
   height: 100%;
+  overflow-y: scroll;
+  text-align: initial;
+  scrollbar-color: rgba(255, 166, 0, 0.781) transparent;
+  padding: 20px;
 
+}
+
+.titleContainerMod {
+  margin-bottom: 25px;
+}
+
+.titleContainerMod p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  color: #5058E6;
+}
+
+.titleContainerMod h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 140%;
+  color: #1E1E1E;
+}
+
+.typeModeContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  border-radius: 20px;
+}
+
+.typeModeContainer:hover {
+  padding: 5px 10px;
+  opacity: 0.8;
+  background-color: #c9c9c9;
+}
+
+.typeModeContainer img {
+  color: #5058E6;
+}
+
+.title-icon h3{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 140%;
+  color: #1E1E1E;
+}
+
+.title-icon p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  color: #5058E6;
 }
 
 .setTimeGame {
@@ -341,4 +401,76 @@ button:focus-visible {
 .gamePlayerLayout {
   grid-column: 2 / -1;
   grid-row: 1/-1;
+}
+
+.setTime {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.setTime h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.inputNumberTime {
+  background: #D9D9D9;
+  border-radius: 20px;
+  color: #1E1E1E;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 140%;
+  color: #1E1E1E;
+  width: 100px;
+  border: 0;
+  padding: 0px 20px;
+  outline: none;
+}
+
+.containerTimeGame h2 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #1E1E1E;
+}
+
+.containerTimeGame p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1E1E1E;
+}
+
+.showScoreContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 20px;
+}
+
+.scoreIcon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.actualScore {
+  grid-column: 2/-1;
+  grid-row: 2;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 100%;
+  color: #FFFFFF;
+  transform: rotate(-10deg);
 }

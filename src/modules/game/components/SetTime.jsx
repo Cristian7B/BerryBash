@@ -1,3 +1,10 @@
+import { InputNumber } from "./InputNumber";
+
 export function SetTime() {
-    return
+    return (
+        <div className="setTime">
+            <h1>Set Time</h1>
+            <InputNumber/>
+        </div>
+    )
 }

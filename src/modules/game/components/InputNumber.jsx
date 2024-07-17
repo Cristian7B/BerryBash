@@ -1,3 +1,5 @@
 export function InputNumber(){
-    return
+    return (
+        <input placeholder="10" className="inputNumberTime" type="number" />
+    )
 }

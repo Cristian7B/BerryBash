@@ -5,23 +5,27 @@ import pawIcon from "../../../assets/paw.svg"
 
 export const ModeObject = [
     {
+        id: "bullseyeMode",
         icon: bullseyeIcon,
         name: "Bullseye icons",
-        description: ""
+        description: "Hit the target with precision.",
     },
     {
+        id: "foodMode",
         icon: beerIcon,
         name: "Food icons",
-        description: ""
+        description: "Click fast on food and drink icons.",
     },
     {
+        id: "flagsMode",
         icon: flagIcon,
         name: "Flag icons",
-        description: ""
+        description: "React quickly to different flags.",
     },
     {
+        id: "pawMode",
         icon: pawIcon,
         name: "Animal icons",
-        description: ""
+        description: "Catch the animals swiftly.",
     },
 ]
