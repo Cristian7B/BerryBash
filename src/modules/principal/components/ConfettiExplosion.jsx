@@ -16,7 +16,7 @@ const ConfettiExplosion = () => {
     }
   };
 
-  return <Confetti drawShape={drawTargetShape} tweenDuration={6000} numberOfPieces={50}/>;
+  return <Confetti drawShape={drawTargetShape} tweenDuration={6000} numberOfPieces={25}/>;
 };
 
 export default ConfettiExplosion;

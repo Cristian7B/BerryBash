@@ -1,11 +1,11 @@
-import { NavPage } from "./NavPage"
-import { StartGameRedirect } from "./StartGameRedirect"
+import { StartGameRedirect } from "../../game/components/StartGameRedirect"
 import { TitlePrincipal } from "./TitlePrincipal"
+import ConfettiExplosion from './ConfettiExplosion'
 
 export function PrincipalPage() {
     return (
         <div className="principalPageGame">
-            <NavPage/>
+            <ConfettiExplosion/>
             <div className="titlePrincipal">
                 <TitlePrincipal/>
                 <StartGameRedirect/>

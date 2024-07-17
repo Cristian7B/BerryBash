@@ -1,5 +1,5 @@
 import {useState, useEffect } from 'react'
-import { mouseFollowerStyles } from '../consts'
+import { mouseFollowerStyles } from '../../game/utils/consts'
 
 export function MouseFollower() {
 

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react"
-import { foodEmojis, foodStyles } from "../consts"
+import { foodEmojis, foodStyles } from "../utils/consts"
 import { randomNumber } from "../utils/randomNumber"
 import { ModalScore } from "./ModalScore";
 
@@ -92,7 +92,10 @@ export function DivGame() {
                     {showFruit}
                 </div>
             </div>
-            <button onClick={startInformation}>Iniciar</button>
+            <div className="startResetDiv">
+                <button onClick={startInformation}>Iniciar</button>
+                <div>Resetear</div>
+            </div>
             {
                 showModal && (
                     <ModalScore 
