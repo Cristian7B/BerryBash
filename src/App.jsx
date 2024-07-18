@@ -4,10 +4,12 @@ import { GamePage } from './modules/game/components/GamePage'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { NavPage } from './modules/principal/components/NavPage'
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {
   return (
     <>
+    <Analytics/>
     <Router>
       <MouseFollower/>
       <NavPage/>
