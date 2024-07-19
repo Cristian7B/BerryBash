@@ -1,13 +1,10 @@
 // useMode.js
 import { useState } from 'react';
+import { useContext } from 'react';
+import { ModeContext } from '../context/Modes';
 
 export const useMode = () => {
-    const [selectedModeId, setSelectedModeId] = useState(null);
+    const {mode, setMode} = useContext(ModeContext)
 
-    const handleModeClick = (id) => {
-        setSelectedModeId(id);
-    };
-
-    console.log(selectedModeId)
-    return { selectedModeId, handleModeClick };
+    return { mode, setMode };
 };

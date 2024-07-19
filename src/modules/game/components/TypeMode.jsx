@@ -1,10 +1,10 @@
 import { useMode } from "../hooks/useMode"
 
 export function TypeMode({icon, name, description, id}) {
-    const { handleModeClick } = useMode()
+    const { setMode } = useMode()
 
     const sendTypeMode = () => {
-        handleModeClick(id)
+        setMode(id)
     }
 
     return (

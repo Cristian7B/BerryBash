@@ -1,6 +1,9 @@
+import { useContext } from "react"
 import scoreIcon from "../../../assets/score.svg"
+import { ModeContext } from "../context/Modes"
 
-export function ShowScore({score}) {
+export function ShowScore() {
+    const {score} = useContext(ModeContext)
     return (
         <div className="showScoreContainer">
             <div className="scoreIcon">
@@ -8,7 +11,7 @@ export function ShowScore({score}) {
                 <h1>Score</h1>
             </div>
             <div className="actualScore">
-                ¡{score}100!
+                ¡{score}!
             </div>
         </div>
     )

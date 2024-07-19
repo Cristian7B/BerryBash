@@ -1,17 +1,24 @@
-import { useEffect, useState, useRef } from "react"
-import { foodEmojis, foodStyles } from "../utils/consts"
+import { useEffect, useState, useRef, useContext } from "react"
+import { selectModeById, Styles } from "../utils/consts"
 import { randomNumber } from "../utils/randomNumber"
 import { ModalScore } from "./ModalScore";
+import { ModeContext } from "../context/Modes";
+
 export function DivGame() {
-    const [startGame, setStartGame] = useState(false)
+    const {mode} = useContext(ModeContext)
+    const {timeGame} = useContext(ModeContext)
+    const emojisSelectedMode = selectModeById(mode)
+    const lengthArrayEmojis = emojisSelectedMode.length - 1
+
+    const {startGame, setStartGame} = useContext(ModeContext)
     const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
-    const [positionFruit, setPositionFruit] = useState({x: randomNumber(containerSize.x), y: randomNumber(containerSize.y)})
-    const [showFruit, setShowFruit] = useState(foodEmojis[randomNumber(49)])
-    const [counter, setCounter] = useState(0)
+    const [positionElement, setPositionElement] = useState({x: randomNumber(containerSize.x), y: randomNumber(containerSize.y)})
+    const [showElement, setShowElement] = useState(emojisSelectedMode[randomNumber(lengthArrayEmojis)])
+    const {score, setScore} = useContext(ModeContext)
     const [showModal, setShowModal] = useState(false)
 
     const containerRef = useRef(null);
-    const intervalRefFruit = useRef(null);
+    const intervalRefElement = useRef(null);
     
 
     const startInformation = () => {
@@ -21,9 +28,9 @@ export function DivGame() {
     const resetGame = () => {
         setStartGame(false)
         setShowModal(false)
-        setCounter(0);
-        setPositionFruit({x: randomNumber(containerSize.x), y: randomNumber(containerSize.y)});
-        setShowFruit(foodEmojis[randomNumber(49)])
+        setScore(0);
+        setPositionElement({x: randomNumber(containerSize.x), y: randomNumber(containerSize.y)});
+        setShowElement(emojisSelectedMode[randomNumber(lengthArrayEmojis)])
     }
 
     useEffect(() => {
@@ -33,33 +40,37 @@ export function DivGame() {
             y: containerRef.current.offsetHeight,
           });
         }
-        setPositionFruit({x: randomNumber(containerSize.x) - 50, y: randomNumber(containerSize.y) - 50})
+        setPositionElement({x: randomNumber(containerSize.x) - 50, y: randomNumber(containerSize.y) - 50})
     }, [startGame]);
+
+    useEffect(() => {
+        setShowElement(emojisSelectedMode[randomNumber(lengthArrayEmojis)])
+    }, [mode])
     
 
-    const handleFruitClick = () => {
-        const fruitIndex = randomNumber(49);
-        setShowFruit(foodEmojis[fruitIndex]);
-        setPositionFruit({x: randomNumber(containerSize.x - 50), y: randomNumber(containerSize.y - 50)})
-        setCounter(counter + 1); 
-        resetFruitInterval();
+    const handleElementClick = () => {
+        const ElementIndex = randomNumber(lengthArrayEmojis);
+        setShowElement(emojisSelectedMode[ElementIndex]);
+        setPositionElement({x: randomNumber(containerSize.x - 50), y: randomNumber(containerSize.y - 50)})
+        setScore(score + 1); 
+        resetElementInterval();
     };
 
     
-    function startShowFruit() {
-        const timerFruit = setInterval(() => {
-            const fruitIndex = randomNumber(49)
-            setShowFruit(foodEmojis[fruitIndex])
-            setPositionFruit({x: randomNumber(containerSize.x - 50), y: randomNumber(containerSize.y - 50)})
+    function startShowElement() {
+        const timerElement = setInterval(() => {
+            const ElementIndex = randomNumber(lengthArrayEmojis)
+            setShowElement(emojisSelectedMode[ElementIndex])
+            setPositionElement({x: randomNumber(containerSize.x - 50), y: randomNumber(containerSize.y - 50)})
         }, 1000)
-        intervalRefFruit.current = timerFruit
+        intervalRefElement.current = timerElement
     }
 
-    const resetFruitInterval = () => {
-        if (intervalRefFruit.current) {
-            clearInterval(intervalRefFruit.current);
+    const resetElementInterval = () => {
+        if (intervalRefElement.current) {
+            clearInterval(intervalRefElement.current);
         }
-        startShowFruit();
+        startShowElement();
     };
 
     useEffect(() => {
@@ -67,13 +78,13 @@ export function DivGame() {
             const timer = setTimeout(() => {
                 startInformation();
                 setShowModal(true);
-            }, 5000);
+            }, timeGame*1000);
 
-            startShowFruit();
+            startShowElement();
 
             return () => {
                 clearTimeout(timer);
-                clearInterval(intervalRefFruit.current);
+                clearInterval(intervalRefElement.current);
             };
             
         }
@@ -82,11 +93,11 @@ export function DivGame() {
         <div className="containerAllGame">
             <div ref={containerRef} className="gameContainerFood">
                 <div 
-                    style={foodStyles(positionFruit, startGame)} 
-                    onClick={handleFruitClick} 
+                    style={Styles(positionElement, startGame)} 
+                    onClick={handleElementClick} 
                     className="elementFood"
                 >
-                    {showFruit}
+                    {showElement}
                 </div>
             </div>
             <div className="startResetDiv">
@@ -97,7 +108,7 @@ export function DivGame() {
                 showModal && (
                     <ModalScore 
                         resetGame={resetGame} 
-                        counterScore={counter}
+                        counterScore={score}
                     />
                 )
             }
