@@ -207,7 +207,12 @@ button:focus-visible {
   border-radius: 10px;
 }
 
+.cardShow a {
+  text-decoration: none;
+}
+
 .cardShow button {
+  outline: 0;
   display: flex;
   align-items: center;
   gap: 5px;

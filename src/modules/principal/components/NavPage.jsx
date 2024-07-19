@@ -4,7 +4,7 @@ export function NavPage() {
         <nav className="navBarContainer">
             <ul>
                 <li>
-                    <a target="_blank" className="urlNavRedirect" href="">GitHub</a>
+                    <a target="_blank" className="urlNavRedirect" href="https://github.com/Cristian7B/berrybash/">GitHub</a>
                 </li>
                 <li>
                     <h2><Link to="/">BerryBash</Link></h2>
