@@ -2,7 +2,7 @@ import { ModeProvider } from '../context/Modes'
 import {DivGame} from './DivGame'
 import { ModeSelector } from './ModeSelector'
 import { SetTime } from './SetTime'
-import { ShowScore } from './ShowScore'
+import { Score } from "./Score"
 import { TimeGame } from './TimeGame'
 
 export function GamePage() {
@@ -19,7 +19,7 @@ export function GamePage() {
                     <TimeGame/>
                 </div>
                 <div className="scoreShow">
-                    <ShowScore/>
+                    <Score/>
                 </div>
                 <div className="gamePlayerLayout">
                     <DivGame/>

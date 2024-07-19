@@ -1,5 +1,3 @@
-// useMode.js
-import { useState } from 'react';
 import { useContext } from 'react';
 import { ModeContext } from '../context/Modes';
 

@@ -1,30 +1,22 @@
 import { useContext, useEffect, useState } from "react"
 import clockIcon from "../../../assets/clock.svg"
 import { ModeContext } from "../context/Modes"
+import { counterLess } from "../utils/counter"
 
 export function TimeGame() {
     const { timeGame, startGame } = useContext(ModeContext)
     const [timer, setTimer] = useState(timeGame)
 
-    useEffect(() => {
+    useEffect(() => {  
+
         if (startGame) {
-            const intervalId = setInterval(() => {
-                setTimer(prevTimer => {
-                    if (prevTimer > 0) {
-                        return prevTimer - 1
-                    } else {
-                        clearInterval(intervalId)
-                        return prevTimer
-                    }
-                })
-            }, 1000)
-            
+            const intervalId = counterLess(setTimer)   
             return () => clearInterval(intervalId)
         } 
-        
         else {
             setTimer(timeGame)
         }
+
     }, [startGame, timeGame])
 
     return (
